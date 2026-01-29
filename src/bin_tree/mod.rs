@@ -1,6 +1,15 @@
 #![allow(unused_variables, dead_code)]
 
-use std::collections::{HashMap, HashSet, VecDeque};
+// FIRST IMPLEMENTATION NO AI
+// Actually I just let claude comment my code
+// It saw that I have 2 connect implementation, I forgot to
+// delete Node::connect after refactoring understanding that
+// I was confused and tried to have multiple mutable access
+// to the HashMap, for some reason I was trying to cross referencing
+// two node, so another kind of connection than the one I was supposed
+// to do
+
+use std::collections::{HashMap, VecDeque};
 
 use crate::bin_tree::node::*;
 
