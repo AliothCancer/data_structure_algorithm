@@ -1,7 +1,11 @@
+use crate::tree::sealed::Id;
+
+
 pub struct Node<T> {
     pub value: T,
     pub id: Id,
     pub next_node_id: Option<Id>,
+    pub prev_node_id: Option<Id>,
 }
 
 impl<T> Node<T> {
@@ -10,14 +14,14 @@ impl<T> Node<T> {
             value,
             id,
             next_node_id: None,
+            prev_node_id: None,
         }
-    }
-
-    pub fn connect(&mut self, other_node: &mut Node<T>) {
-        self.next_node_id = Some(other_node.id);
-        other_node.next_node_id = Some(self.id);
     }
 }
 
-#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
-pub struct Id(pub u32);
+pub struct OldNode<T>(Node<T>);
+impl<T> OldNode<T> {
+    pub fn new(node: Node<T>) -> Self {
+        Self(node)
+    }
+}

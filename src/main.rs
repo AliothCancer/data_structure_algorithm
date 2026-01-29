@@ -1,6 +1,6 @@
-use crate::bin_tree::LinkedList;
+use crate::tree::{LinkedList};
 
-mod bin_tree;
+mod tree;
 fn main() {
     let mut list = LinkedList::new();
 
@@ -11,4 +11,5 @@ fn main() {
     list.connect(root, ch1);
 
     list.connect(ch1, ch2);
+    
 }
