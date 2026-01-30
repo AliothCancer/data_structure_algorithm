@@ -1,15 +1,18 @@
-use crate::tree::{LinkedList};
+use crate::tree::{ArenaHandler, ConnectNodes, node::Node};
 
 mod tree;
 fn main() {
-    let mut list = LinkedList::new();
+    let mut handler = ArenaHandler::<Node<i32>>::new();
 
-    let root = list.new_node(45);
-    let ch1 = list.new_node(44);
-    let ch2 = list.new_node(49);
-
-    list.connect(root, ch1);
-
-    list.connect(ch1, ch2);
+    let root = handler.new_node(45);
+    handler.set_root_from_none(root);
+    let ch1 = handler.new_node(44);
+    let ch2 = handler.new_node(49);
+    let ch3 = handler.new_node(90);
+    handler.remove_node(ch3);
     
+    dbg!(&handler);
+    handler.connect(root, ch1);
+    dbg!(&handler);
+
 }
